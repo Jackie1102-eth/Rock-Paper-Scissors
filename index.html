@@ -1,0 +1,95 @@
+<script>
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+function getComputerChoice()
+{
+    const x = getRandomInt(3);
+    if (x == 0) 
+    {
+        return "rock"
+    }
+        else if (x == 1)
+    {
+        return "paper"
+    }
+    else
+    {
+        return "scissors"
+    }
+}
+function getHumanChoice()
+{
+const human = prompt("Choose Rock,Paper,scissors: ")
+return human
+}
+let humanScore = 0
+let computerScore = 0
+
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice==computerChoice)
+  {
+      console.log("TIE")
+  }
+  else if (humanChoice =="rock" && computerChoice == "scissors")
+  {
+      console.log("You win! rock beats scissors")
+      humanScore++
+  }
+    else if (humanChoice =="scissors" && computerChoice == "rock")
+  {
+      computerScore++
+      console.log("You Lose! rock beats scissors")
+  }
+      else if (humanChoice =="paper" && computerChoice == "rock")
+  {
+      humanScore++
+      console.log("You Win! paper beats rock")
+  }
+        else if (humanChoice =="rock" && computerChoice == "paper")
+  { 
+      computerScore++
+      console.log("You Lose! paper beats rock")
+  }
+          else if (humanChoice =="scissors" && computerChoice == "rock")
+  {
+      humanScore++
+      console.log("You Win! rock beats scissors")
+  }
+            else if (humanChoice =="rock" && computerChoice == "scissors")
+  {
+      computerScore++
+      console.log("You Lose! rock beats scissors")
+  }
+}
+
+
+function playGame()
+{
+    for (let i = 0 ; i < 5; i++)
+    {
+console.log("Round",i+1)
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+console.log("Human choose:",humanSelection)
+console.log("Computer choose:",computerSelection)
+playRound(humanSelection,computerSelection);
+    }
+    console.log("Human score:",humanScore)
+    console.log("Computer score:",computerScore)
+    if (humanScore == computerScore)
+    {
+        console.log("Human Tie Computer")
+    }
+    else if (humanScore > computerScore)
+    {
+        console.log("Human Won Computer")
+    }
+    else
+    {
+        console.log("Human Lost Computer")
+    }
+}
+playGame()
+
+</script>
